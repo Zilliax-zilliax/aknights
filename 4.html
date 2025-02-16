@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>音律联觉</title>
+    <link rel="stylesheet" href="css/卡片导航.css" />
+    <style>
+      body {
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: url(img/音律联觉2/宣传图_音律联觉.png) no-repeat center
+          center;
+        background-size: cover;
+        background-attachment: fixed;
+        padding-top: 20px;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      p {
+        line-height: 1.5;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Cards */
+      .card-column {
+        width: 50%;
+        float: left;
+        padding: 4%;
+        box-sizing: border-box;
+      }
+
+      .column-1 {
+        padding-top: 100px;
+      }
+
+      .card {
+        width: 92%;
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        background: #eb5160;
+        color: #fff;
+        cursor: pointer;
+        margin-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .border {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 6px;
+        border: 1px solid #fff;
+        opacity: 0.5;
+        left: -6px;
+        top: -6px;
+        pointer-events: none;
+      }
+
+      .card h2 {
+        position: relative;
+        padding: 20px;
+        margin: 0;
+        font-size: 1.1em;
+        line-height: 1.5;
+        background: inherit;
+        z-index: 1;
+      }
+
+      .card > img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        position: relative;
+        left: 0;
+        top: 0;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover > img {
+        transform: scale(1.05);
+      }
+
+      .card-color-0 {
+        background: linear-gradient(135deg, #eb5160, #d44d5c);
+      }
+
+      .card-color-1 {
+        background: linear-gradient(135deg, #8f3985, #7a2f70);
+      }
+
+      .card-color-2 {
+        background: linear-gradient(135deg, #8daa91, #7a947e);
+      }
+
+      .card-color-3 {
+        background: linear-gradient(135deg, #888da7, #757994);
+      }
+
+      /* The cover (expanding background) */
+      .cover {
+        position: fixed;
+        background: #eb5160;
+        z-index: 100;
+        transform-origin: 50% 50%;
+      }
+
+      /* The open page content */
+      .open-content {
+        width: 100%;
+        z-index: 110;
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .open-content img {
+        position: relative;
+        width: 90%;
+        margin-left: 3%;
+        margin-top: 20px;
+        z-index: 5;
+      }
+
+      .open-content .text {
+        background: #fff;
+        margin-top: -56%;
+        padding: 60% 5% 5% 5%;
+        width: 80%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+      }
+
+      .open-content .text h1,
+      .open-content .text p {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .close-content {
+        display: block;
+        position: absolute;
+        right: 12px;
+        top: 32px;
+        width: 30px;
+        height: 30px;
+      }
+
+      .close-content span {
+        background: #222;
+        width: 30px;
+        height: 6px;
+        display: block;
+        position: absolute;
+        top: 14px;
+      }
+
+      .x-1 {
+        transform: rotate(45deg);
+      }
+
+      .x-2 {
+        transform: rotate(-45deg);
+      }
+
+      /* 
+** Transitions
+*/
+
+      .card {
+        transition: opacity 200ms linear 320ms, transform 200ms ease-out 320ms;
+      }
+
+      .border {
+        transition: opacity 200ms linear, transform 200ms ease-out;
+      }
+
+      .card img {
+        transition: opacity 200ms linear 0ms, transform 200ms ease-in 0ms;
+      }
+
+      .card h1 {
+        transform: translate3d(20%, 0px, 0px);
+        transition: opacity 200ms linear 120ms, transform 200ms ease-in 120ms;
+      }
+
+      /* Clicked card */
+      .card.clicked img {
+        transform: translate3d(0px, -40px, 0px);
+        opacity: 0;
+      }
+
+      .card.clicked .border {
+        opacity: 0;
+        transform: scale(1.3);
+      }
+
+      .card.out,
+      .card.out img {
+        transform: translate3d(0px, -40px, 0px);
+        opacity: 0;
+      }
+
+      .card.out h2,
+      .card.clicked h2 {
+        transform: translate3d(20%, -40px, 0px);
+        opacity: 0;
+      }
+
+      .cover {
+        transition: transform 300ms ease-in-out;
+      }
+
+      .open-content {
+        transition: opacity 200ms linear 0ms;
+      }
+
+      .open-content.open {
+        opacity: 1;
+        pointer-events: all;
+        transition-delay: 1000ms;
+      }
+
+      /* 
+** Media Queries
+*/
+
+      @media screen and (max-width: 600px) {
+        .card-column {
+          width: 90%;
+        }
+
+        .column-1 {
+          padding-top: 0px;
+        }
+
+        .open-content img {
+          margin-top: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <select class="nav-select" onchange="window.location.href=this.value">
+        <option value="">音律联觉</option>
+        <option value="3.html">合作款</option>
+        <option value="2.html">斗争血脉</option>
+        <option value="珊瑚海岸.html">珊瑚海岸</option>
+        <option value="巫异盛宴.html">巫异盛宴</option>
+        <option value="韵系列.html">韵系列</option>
+        <option value="飙系列.html">飙系列</option>
+      </select>
+      <a href="index.html#box" class="login-link">首页</a>
+      <div class="search-container">
+        <input type="search" placeholder="搜索..." class="search-input" />
+        <button type="button" class="search-button">
+          <i class="fas fa-search"></i>搜索
+        </button>
+      </div>
+      <a href="5.html" class="login-link">登录</a>
+    </nav>
+    <div class="container">
+      <div class="card-column column-0">
+        <div class="card card-color-0">
+          <div class="border"></div>
+          <img src="img/音律联觉/46vl8ywi7etrkkhwnani6w4ur8jkvf8.jpg" />
+          <h2>
+            艾丽妮的工作服之一
+            在布置的空闲时刻，艾丽妮提起自己的裙摆，看向那只高飞的羽兽，脸上隐隐露出一点跃跃欲试的表情，在台上跳起伊比利亚的舞步来。
+          </h2>
+        </div>
+        <div class="card card-color-2">
+          <div class="border"></div>
+          <img src="img/音律联觉/iaaq5nriq1v8c4bq391kp1bwpqj0rdc.jpg" />
+          <h2>
+            银灰的礼服之一。
+            恩希欧迪斯谢绝了那些谄媚的、无关紧要的合作邀请。他相信谢拉格终会征服所有听众，但他也很清楚，现在还不是坚冰融化的时候
+          </h2>
+        </div>
+      </div>
+      <div class="card-column column-1">
+        <div class="card card-color-1">
+          <div class="border"></div>
+          <img src="img/音律联觉/lt2de7tj74l4y8nzm6jmajuffml9vno.jpg" />
+          <h2>
+            流明的工作服之一。
+            浅金色的阳光不是唯一一位到访这间屋子的客人，大海刚刚褪去面纱，流明示意你轻声，别惊扰了这如梦一般的光景。
+          </h2>
+        </div>
+        <div class="card card-color-3">
+          <div class="border"></div>
+          <img src="img/音律联觉/ttkhbqe9nk0ajm8qht4a4e4q25qxva2.jpg" />
+          <h2>
+            琳琅诗怀雅的演出服之一。
+            为确保这支MV拍摄万无一失，诗怀雅认真准备了一些时日。搭档们在闪烁跳动，歌声正飞向云霄，她暂时放下一切头衔，只希望这场表演足够令人难忘。
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div id="cover" class="cover"></div>
+
+    <div id="open-content" class="open-content">
+      <a href="#" id="close-content" class="close-content"
+        ><span class="x-1"></span><span class="x-2"></span
+      ></a>
+      <img id="open-content-image" src="" />
+      <div class="text" id="open-content-text"></div>
+    </div>
+    <script>
+      var cards,
+        nCards,
+        cover,
+        openContent,
+        openContentText,
+        pageIsOpen = false,
+        openContentImage,
+        closeContent,
+        windowWidth,
+        windowHeight,
+        currentCard;
+
+      // initiate the process
+      init();
+
+      function init() {
+        resize();
+        selectElements();
+        attachListeners();
+      }
+
+      // select all the elements in the DOM that are going to be used
+      function selectElements() {
+        (cards = document.getElementsByClassName("card")),
+          (nCards = cards.length),
+          (cover = document.getElementById("cover")),
+          (openContent = document.getElementById("open-content")),
+          (openContentText = document.getElementById("open-content-text")),
+          (openContentImage = document.getElementById("open-content-image"));
+        closeContent = document.getElementById("close-content");
+      }
+
+      /* Attaching three event listeners here:
+  - a click event listener for each card
+  - a click event listener to the close button
+  - a resize event listener on the window
+*/
+      function attachListeners() {
+        for (var i = 0; i < nCards; i++) {
+          attachListenerToCard(i);
+        }
+        closeContent.addEventListener("click", onCloseClick);
+        window.addEventListener("resize", resize);
+      }
+
+      function attachListenerToCard(i) {
+        cards[i].addEventListener("click", function (e) {
+          var card = getCardElement(e.target);
+          onCardClick(card, i);
+        });
+      }
+
+      /* When a card is clicked */
+      function onCardClick(card, i) {
+        // set the current card
+        currentCard = card;
+        // add the 'clicked' class to the card, so it animates out
+        currentCard.className += " clicked";
+        // animate the card 'cover' after a 500ms delay
+        setTimeout(function () {
+          animateCoverUp(currentCard);
+        }, 500);
+        // animate out the other cards
+        animateOtherCards(currentCard, true);
+        // add the open class to the page content
+        openContent.className += " open";
+      }
+
+      /*
+       * This effect is created by taking a separate 'cover' div, placing
+       * it in the same position as the clicked card, and animating it to
+       * become the background of the opened 'page'.
+       * It looks like the card itself is animating in to the background,
+       * but doing it this way is more performant (because the cover div is
+       * absolutely positioned and has no children), and there's just less
+       * having to deal with z-index and other elements in the card
+       */
+      function animateCoverUp(card) {
+        // get the position of the clicked card
+        var cardPosition = card.getBoundingClientRect();
+        // get the style of the clicked card
+        var cardStyle = getComputedStyle(card);
+        setCoverPosition(cardPosition);
+        setCoverColor(cardStyle);
+        scaleCoverToFillWindow(cardPosition);
+
+        // 根据卡片内容选择对应的paragraphText
+        let paragraphText;
+        const cardText = card.children[2].textContent.trim();
+
+        if (cardText.includes("艾丽妮")) {
+          paragraphText =
+            "<p>音律联觉特供款/飞羽。艾丽妮的工作服。艾丽妮负责准备演出道具，在她的布置下，羽兽盘旋上升，飞向更高远的天空，海面的舰船也驶向远方。</p>";
+        } else if (cardText.includes("银灰")) {
+          paragraphText =
+            "<p>音律联觉特供款/不融冰。银灰的礼服，为出席重要场合量身定制。名为希瓦艾什的力量在泰拉撕开裂口，磅礴的冰川与奔腾的云也将为他让路。</p>";
+        } else if (cardText.includes("流明")) {
+          paragraphText =
+            "<p>音律联觉特供款/灿海浮梦。流明闲暇时的便装，裁剪飘逸，用料轻薄。海雾已经散去，想要眺望灯塔，可以不必再借用望远镜的帮助。</p>";
+        } else if (cardText.includes("诗怀雅")) {
+          paragraphText =
+            "<p>音律联觉特供款/律动方格。诗怀雅的演出服，潇洒灵动，尽显活泼可爱。她主导着跃动的节拍，将那些代表了陶醉与赞美的红心欣然收下。</p>";
+          paragraphText =
+            "<p>音律联觉特供款/律动方格。诗怀雅的演出服，潇洒灵动，尽显活泼可爱。她主导着跃动的节拍，将那些代表了陶醉与赞美的红心欣然收下。</p>";
+        }
+
+        // update the content of the opened page
+        openContentText.innerHTML =
+          "<h1>" + card.children[2].textContent + "</h1>" + paragraphText;
+        openContentImage.src = card.children[1].src;
+        setTimeout(function () {
+          // update the scroll position to 0 (so it is at the top of the 'opened' page)
+          window.scroll(0, 0);
+          // set page to open
+          pageIsOpen = true;
+        }, 300);
+      }
+
+      function animateCoverBack(card) {
+        var cardPosition = card.getBoundingClientRect();
+        // the original card may be in a different position, because of scrolling, so the cover position needs to be reset before scaling back down
+        setCoverPosition(cardPosition);
+        scaleCoverToFillWindow(cardPosition);
+        // animate scale back to the card size and position
+        cover.style.transform =
+          "scaleX(" +
+          1 +
+          ") scaleY(" +
+          1 +
+          ") translate3d(" +
+          0 +
+          "px, " +
+          0 +
+          "px, 0px)";
+        setTimeout(function () {
+          // set content back to empty
+          openContentText.innerHTML = "";
+          openContentImage.src = "";
+          // style the cover to 0x0 so it is hidden
+          cover.style.width = "0px";
+          cover.style.height = "0px";
+          pageIsOpen = false;
+          // remove the clicked class so the card animates back in
+          currentCard.className = currentCard.className.replace(" clicked", "");
+        }, 301);
+      }
+
+      function setCoverPosition(cardPosition) {
+        // style the cover so it is in exactly the same position as the card
+        cover.style.left = cardPosition.left + "px";
+        cover.style.top = cardPosition.top + "px";
+        cover.style.width = cardPosition.width + "px";
+        cover.style.height = cardPosition.height + "px";
+      }
+
+      function setCoverColor(cardStyle) {
+        // style the cover to be the same color as the card
+        cover.style.backgroundColor = cardStyle.backgroundColor;
+      }
+
+      function scaleCoverToFillWindow(cardPosition) {
+        // calculate the scale and position for the card to fill the page,
+        var scaleX = windowWidth / cardPosition.width;
+        var scaleY = windowHeight / cardPosition.height;
+        var offsetX =
+          (windowWidth / 2 - cardPosition.width / 2 - cardPosition.left) /
+          scaleX;
+        var offsetY =
+          (windowHeight / 2 - cardPosition.height / 2 - cardPosition.top) /
+          scaleY;
+        // set the transform on the cover - it will animate because of the transition set on it in the CSS
+        cover.style.transform =
+          "scaleX(" +
+          scaleX +
+          ") scaleY(" +
+          scaleY +
+          ") translate3d(" +
+          offsetX +
+          "px, " +
+          offsetY +
+          "px, 0px)";
+      }
+
+      /* When the close is clicked */
+      function onCloseClick() {
+        // remove the open class so the page content animates out
+        openContent.className = openContent.className.replace(" open", "");
+        // animate the cover back to the original position card and size
+        animateCoverBack(currentCard);
+        // animate in other cards
+        animateOtherCards(currentCard, false);
+      }
+
+      function animateOtherCards(card, out) {
+        var delay = 100;
+        for (var i = 0; i < nCards; i++) {
+          // animate cards on a stagger, 1 each 100ms
+          if (cards[i] === card) continue;
+          if (out) animateOutCard(cards[i], delay);
+          else animateInCard(cards[i], delay);
+          delay += 100;
+        }
+      }
+
+      // animations on individual cards (by adding/removing card names)
+      function animateOutCard(card, delay) {
+        setTimeout(function () {
+          card.className += " out";
+        }, delay);
+      }
+
+      function animateInCard(card, delay) {
+        setTimeout(function () {
+          card.className = card.className.replace(" out", "");
+        }, delay);
+      }
+
+      // this function searches up the DOM tree until it reaches the card element that has been clicked
+      function getCardElement(el) {
+        if (el.className.indexOf("card ") > -1) return el;
+        else return getCardElement(el.parentElement);
+      }
+
+      // resize function - records the window width and height
+      function resize() {
+        if (pageIsOpen) {
+          // update position of cover
+          var cardPosition = currentCard.getBoundingClientRect();
+          setCoverPosition(cardPosition);
+          scaleCoverToFillWindow(cardPosition);
+        }
+        windowWidth = window.innerWidth;
+        windowHeight = window.innerHeight;
+      }
+    </script>
+  </body>
+</html>

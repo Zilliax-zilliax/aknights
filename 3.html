@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>明日方舟-合作款</title>
+    <link rel="stylesheet" href="css/卡片导航.css" />
+    <style>
+      body {
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url(img/合作款/byfnqf5apeech8y184h8idtvrxzhmlz.png) no-repeat center
+            center;
+        background-size: cover;
+        background-attachment: fixed;
+        padding-top: 20px;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      /* 定义外层容器样式 */
+      .shell {
+        position: relative;
+        width: 100vw;
+        height: 100vw;
+        max-width: 600px;
+        max-height: 600px;
+        margin: 50px 0;
+        color: white;
+        perspective: 1500px;
+        transform-origin: center;
+      }
+
+      /* 定义内容容器样式 */
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-origin: center;
+        transform-style: preserve-3d;
+        transform: translateZ(-40vw) rotateY(0);
+        animation: carousel 20s infinite cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        will-change: transform;
+      }
+
+      /* 定义项目样式 */
+      .item {
+        position: absolute;
+        width: 100vw;
+        height: 40vw;
+        max-width: 800px;
+        max-height: 400px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        background-size: cover;
+        background-position: center;
+        -webkit-box-reflect: below 25px -webkit-linear-gradient(transparent 50%, rgba(255, 255, 255, 0.3));
+        will-change: transform;
+        backface-visibility: hidden;
+      }
+
+      /* 定义每个项目的旋转角度和背景图片 */
+      .item:nth-child(1) {
+        background-image: url(img/合作款/14pe7bvqzf3hqbooldmpqzkjnih4b08.png);
+        transform: rotateY(0) translateZ(45vw);
+      }
+      .item:nth-child(2) {
+        background-image: url(img/合作款/1xkdd9f0gmojsl4ztov32ftxqszu7wi.jpg);
+        transform: rotateY(72deg) translateZ(45vw);
+      }
+      .item:nth-child(3) {
+        background-image: url(img/合作款/60zvbn06q5ss9o7aqaba5qbjjicfd2o.jpg);
+        transform: rotateY(144deg) translateZ(45vw);
+      }
+      .item:nth-child(4) {
+        background-image: url(img/合作款/7uv0fu6q7ik8o5je3n0xk0gdm9t3qeg.jpg);
+        transform: rotateY(216deg) translateZ(45vw);
+      }
+      .item:nth-child(5) {
+        background-image: url(img/合作款/e3wfnlwx3hjchki7g55oxtgfptop0hp.jpg);
+        transform: rotateY(288deg) translateZ(45vw);
+      }
+
+      /* 定义动画关键帧 */
+      @keyframes carousel {
+        0% {
+          transform: translateZ(-45vw) rotateY(0);
+        }
+        20% {
+          transform: translateZ(-45vw) rotateY(-72deg);
+        }
+        40% {
+          transform: translateZ(-45vw) rotateY(-144deg);
+        }
+        60% {
+          transform: translateZ(-45vw) rotateY(-216deg);
+        }
+        80% {
+          transform: translateZ(-45vw) rotateY(-288deg);
+        }
+        100% {
+          transform: translateZ(-45vw) rotateY(-360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <select class="nav-select" onchange="window.location.href=this.value">
+        <option value="">合作款</option>
+        <option value="2.html">斗争血脉</option>
+        <option value="4.html">音律联觉</option>
+        <option value="珊瑚海岸.html">珊瑚海岸</option>
+        <option value="巫异盛宴.html">巫异盛宴</option>
+        <option value="韵系列.html">韵系列</option>
+        <option value="飙系列.html">飙系列</option>
+      </select>
+      <a href="index.html#box" class="login-link">首页</a>
+      <div class="search-container">
+        <input type="search" placeholder="搜索..." class="search-input" />
+        <button type="button" class="search-button">
+          <i class="fas fa-search"></i>搜索
+        </button>
+      </div>
+      <a href="5.html" class="login-link">登录</a>
+    </nav>
+    <div class="shell">
+      <div class="content">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+    </div>
+  </body>
+</html>

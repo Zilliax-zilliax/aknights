@@ -1,0 +1,196 @@
+.sanhu-main {
+  width: 1250px;
+  height: 400px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.sanhu-section-left {
+  width: 850px;
+  height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.sanhu-section-right {
+  width: 350px;
+  height: 500px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sanhu-section-right h4 {
+  color: rgba(6, 190, 182, 0.9);
+  font-size: 24px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #06beb6;
+  padding-bottom: 10px;
+}
+
+.sanhu-section-right p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.sanhu-section-right .skin-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sanhu-section-right .skin-list li {
+  margin: 10px 0;
+  padding: 8px 12px;
+  background: rgba(6, 190, 182, 0.1);
+  border-radius: 4px;
+  color: #06beb6;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sanhu-section-right .skin-list li:hover {
+  background: rgba(6, 190, 182, 0.2);
+  transform: translateX(5px);
+}
+
+.sanhu-nav-ul {
+  background: linear-gradient(135deg, #48b1bf, #06beb6);
+  width: 150px;
+  height: 400px;
+  list-style: none;
+  padding: 40px 0;
+  margin: 0;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.sanhu-nav-li {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 5px 0;
+  cursor: pointer;
+  padding: 12px 30px;
+  color: white;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.sanhu-nav-li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sanhu-nav-li.on {
+  background: #06beb6;
+  transform: translateX(10px);
+}
+
+.sanhu-section {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+}
+
+.sanhu-nav-cont {
+  width: 700px;
+  height: 400px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.sanhu-nav-cont.active {
+  display: block;
+  opacity: 1;
+}
+
+.sanhu-nav-cont img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#sanhu-box {
+  width: 700px;
+  height: 400px;
+  border: none;
+  position: absolute;
+  right: 0;
+  overflow: hidden;
+  z-index: 1;
+  display: block;
+}
+
+#sanhu-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+}
+
+#sanhu-btns {
+  position: absolute;
+  right: 50px;
+  bottom: 15px;
+  z-index: 10;
+}
+
+#sanhu-btns button {
+  background: rgba(255, 255, 255, 0.8);
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 14px;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+#sanhu-btns button:hover {
+  transform: scale(1.1);
+  background: rgba(6, 190, 182, 0.9);
+  color: white;
+}
+
+#sanhu-btns button.hover {
+  background: #06beb6;
+  color: white;
+  transform: scale(1.1);
+}
+
+section {
+  flex-grow: 1;
+  position: relative;
+  height: 400px;
+  width: 700px;
+}
+h1 {
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+  font-size: 40px;
+}

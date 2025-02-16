@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>斗争血脉</title>
+    <link rel="stylesheet" href="css/卡片导航.css" />
+    <style>
+      body {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: url(img/d4sphiz2fhxtfd9azr80tpk9m2l594j.png) no-repeat
+          center center;
+        background-size: cover;
+        background-attachment: fixed;
+        padding-top: 20px;
+      }
+
+      .shell,
+      .shell2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        max-width: 1400px;
+        margin: 0 10px;
+        padding: 20px;
+      }
+
+      .shell2 {
+        margin-top: 20px;
+        padding-top: 40px;
+        border-top: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .card {
+        width: 350px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        perspective: 2500px;
+        transition: all 0.4s;
+      }
+
+      .card-wallpaper {
+        width: 340px;
+        height: 350px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 0 20px;
+        margin: auto 20px;
+        margin-bottom: 25px;
+      }
+
+      .cover-image {
+        width: 100%;
+        height: 100%;
+      }
+
+      .wrapper {
+        transition: all 0.3s;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+      }
+
+      .card-wallpaper:hover .wrapper {
+        transform: perspective(900px) translateY(-5%) rotateX(25deg)
+          translateZ(0);
+        box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+      }
+
+      .wrapper::before,
+      .wrapper::after {
+        content: "";
+        opacity: 0;
+        width: 100%;
+        height: 80px;
+        transition: all 0.3s;
+        position: absolute;
+        left: 0;
+      }
+
+      .wrapper::before {
+        top: 0;
+        height: 100%;
+        background-image: linear-gradient(
+          to top,
+          transparent 46%,
+          rgba(12, 13, 19, 0.5) 68%,
+          rgba(12, 13, 19) 97%
+        );
+      }
+
+      .wrapper::after {
+        bottom: 0;
+        opacity: 1;
+        background-image: linear-gradient(
+          to bottom,
+          transparent 46%,
+          rgba(12, 13, 19, 0.5) 68%,
+          rgba(12, 13, 19) 97%
+        );
+      }
+
+      .card-wallpaper:hover .wrapper::before,
+      .wrapper::after {
+        opacity: 1;
+      }
+
+      .card-wallpaper:hover .wrapper::after {
+        height: 120px;
+      }
+
+      .title {
+        width: 100%;
+        transition: transform 0.3s;
+      }
+
+      .card-wallpaper:hover .title {
+        transform: translate3d(0%, -50px, 100px);
+      }
+
+      .character {
+        width: 100%;
+        opacity: 0;
+        transition: all 0.3s;
+        position: absolute;
+        z-index: -1;
+      }
+
+      .card-wallpaper:hover .character {
+        opacity: 1;
+        transform: translate3d(0%, -20%, 100px);
+      }
+
+      .card-wallpaper:hover {
+        transform: translateY(40px);
+      }
+
+      .card-description {
+        text-align: center;
+        color: #fff;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 12px;
+        backdrop-filter: blur(5px);
+        width: 350px;
+      }
+
+      .card-description h3 {
+        font-size: 1.5em;
+        margin-bottom: 12px;
+        color: #00e1ff;
+      }
+
+      .card-description p {
+        font-size: 1.1em;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <select class="nav-select" onchange="window.location.href=this.value">
+        <option value="">斗争血脉</option>
+        <option value="3.html">合作款</option>
+        <option value="4.html">音律联觉</option>
+        <option value="珊瑚海岸.html">珊瑚海岸</option>
+        <option value="巫异盛宴.html">巫异盛宴</option>
+        <option value="韵系列.html">韵系列</option>
+        <option value="飙系列.html">飙系列</option>
+      </select>
+      <a href="index.html#box" class="login-link">首页</a>
+      <div class="search-container">
+        <input type="search" placeholder="搜索..." class="search-input" />
+        <button type="button" class="search-button">
+          <i class="fas fa-search"></i>搜索
+        </button>
+      </div>
+      <a href="5.html" class="login-link">登录</a>
+    </nav>
+
+    <div class="shell">
+      <div class="card">
+        <div class="card-wallpaper">
+          <div class="wrapper">
+            <img
+              src="img/卡片1/2se3t4stj1pzcdq9w9mknbjk1l13ol2.png"
+              alt=""
+              class="cover-image"
+            />
+          </div>
+          <img src="" alt="" class="title" />
+          <img src="img/卡片2/立绘_伊内丝_skin1.png" alt="" class="character" />
+        </div>
+        <div class="card-description">
+          <h3>伊内丝</h3>
+          <p>
+            斗争血脉系列/燃烧天穹下。炮火弋空，崩天裂地，一切好似旧日重现。伊内丝来到城下，她将改写看似注定的结局，使卡兹戴尔免于被毁灭的命运
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-wallpaper">
+          <div class="wrapper">
+            <img
+              src="img/卡片1/r2s2gqz44wrifjgqpzs59m33tyzvof0.jpg"
+              alt=""
+              class="cover-image"
+            />
+          </div>
+          <img src="" alt="" class="title" />
+          <img
+            src="img/卡片2/立绘_浊心斯卡蒂_skin1.png"
+            alt=""
+            class="character"
+          />
+        </div>
+        <div class="card-description">
+          <h3>浊心斯卡蒂</h3>
+          <p>
+            斗争血脉系列/升华。祂栖息在被大海浸漫的伊比利亚大教堂残骸内，歌声从喉中传出，进入每位海嗣的耳中，前往天空之上的无尽星海。
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-wallpaper">
+          <div class="wrapper">
+            <img
+              src="img/卡片1/m4orbrqa161iq4n4fbcm1fepl2wrkv5.png"
+              alt=""
+              class="cover-image"
+            />
+          </div>
+          <img src="" alt="" class="title" />
+          <img src="img/卡片2/立绘_棘刺_skin2.png" alt="" class="character" />
+        </div>
+        <div class="card-description">
+          <h3>棘刺</h3>
+          <p>
+            斗争血脉系列/锋潮。棘刺亮出剑锋，沉寂近百年的伊比利亚舰队再度起航。黄金璀璨的秘密显于律外之地，无垠沙海与汪洋再难掩盖夺目辉光
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="shell2">
+      <div class="card">
+        <div class="card-wallpaper">
+          <div class="wrapper">
+            <img
+              src="img/卡片1/0owiidko770ji48o30a6fv7gmbljz3q.jpg"
+              alt=""
+              class="cover-image"
+            />
+          </div>
+          <img src="" alt="" class="title" />
+          <img src="img/卡片2/立绘_黑键_skin1.png" alt="" class="character" />
+        </div>
+        <div class="card-description">
+          <h3>黑键</h3>
+          <p>
+            斗争血脉系列/变奏。历代乌提卡伯爵都曾穿过的传统式样礼服，如今正披在黑键肩头。律令自杖尖漠然流出，穿透贵族们空洞的合奏。
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-wallpaper">
+          <div class="wrapper">
+            <img
+              src="img/卡片1/jdxxh9wslrjjcv6sn2z87s60fpcodjx.jpg"
+              alt=""
+              class="cover-image"
+            />
+          </div>
+          <img src="" alt="" class="title" />
+          <img
+            src="img/卡片2/立绘_归溟幽灵鲨_skin1.png"
+            alt=""
+            class="character"
+          />
+        </div>
+        <div class="card-description">
+          <h3>劳伦缇娜</h3>
+          <p>
+            斗争血脉系列/生而为一。雕刻留下阴影，正如硬币正反，日夜双分。当彼此都意识到自我的两面性时，劳伦缇娜便拥有双月般最完整的灵魂。
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-wallpaper">
+          <div class="wrapper">
+            <img
+              src="img/卡片1/f6m8t6j2agfos5xhjtt3zsskh37o54a.jpg"
+              alt=""
+              class="cover-image"
+            />
+          </div>
+          <img src="" alt="" class="title" />
+          <img
+            src="img/卡片2/立绘_假日威龙陈_skin1.png"
+            alt=""
+            class="character"
+          />
+        </div>
+        <div class="card-description">
+          <h3>陈</h3>
+          <p>
+            斗争血脉系列/万重山。陈晖洁星夜入京，事了后又于同样的夜晚离开。她辞别故人，轻舟顺江而下，船头的行灯撞破无数雾与夜
+            “咱们就在前面作别吧”。
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>明日方舟 - 登录</title>
+    <link rel="stylesheet" href="css/登录界面.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <div class="login-header">
+          <h2>明日方舟</h2>
+          <p>欢迎回来，博士</p>
+        </div>
+        <form class="login-form" id="loginForm" novalidate>
+          <div class="form-group">
+            <input type="email" placeholder="请输入邮箱" required />
+            <span class="validation-message">请输入有效的邮箱地址</span>
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="请输入密码" required />
+            <span class="validation-message">请输入密码</span>
+          </div>
+          <div class="remember-forgot">
+            <label class="remember-me">
+              <input type="checkbox" />
+              <span>记住我</span>
+            </label>
+            <a href="#" class="forgot-password">忘记密码？</a>
+          </div>
+          <button type="submit" class="login-button">登录</button>
+          <div class="register-link">还没有账号？ <a href="#">立即注册</a></div>
+        </form>
+        <div class="social-login">
+          <p>其他登录方式</p>
+          <div class="social-icons">
+            <button type="button" title="微信登录" class="social-btn wechat">
+              微信
+            </button>
+            <button type="button" title="QQ登录" class="social-btn qq">
+              QQ
+            </button>
+            <button type="button" title="微博登录" class="social-btn weibo">
+              微博
+            </button>
+          </div>
+        </div>
+      </div>
+      <a href="index.html" class="back-home">返回首页</a>
+    </div>
+
+    <script>
+      const form = document.getElementById("loginForm");
+      const inputs = form.querySelectorAll("input[required]");
+
+      inputs.forEach((input) => {
+        input.addEventListener("blur", validateInput);
+        input.addEventListener("input", () => {
+          input.parentElement.classList.remove("error");
+        });
+      });
+
+      function validateInput(e) {
+        const input = e.target;
+        const isValid = input.checkValidity();
+
+        if (!isValid) {
+          input.parentElement.classList.add("error");
+        } else {
+          input.parentElement.classList.remove("error");
+        }
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        inputs.forEach((input) => {
+          if (!input.checkValidity()) {
+            input.parentElement.classList.add("error");
+            isValid = false;
+          }
+        });
+
+        if (isValid) {
+          // 这里添加登录逻辑
+          console.log("表单验证通过，可以提交");
+        }
+      });
+    </script>
+  </body>
+</html>

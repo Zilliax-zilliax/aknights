@@ -1,0 +1,194 @@
+.biao-main {
+  width: 1250px;
+  height: 400px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.biao-section {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+}
+
+.biao-section-left {
+  width: 850px;
+  height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.biao-section-right {
+  width: 350px;
+  height: 500px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+}
+
+.biao-section-right h4 {
+  color: rgba(255, 78, 80, 0.9);
+  font-size: 24px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ff4e50;
+  padding-bottom: 10px;
+}
+
+.biao-section-right p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.biao-section-right .skin-list {
+  list-style: none;
+  padding: 0;
+}
+
+.biao-section-right .skin-list li {
+  margin: 10px 0;
+  padding: 8px 12px;
+  background: rgba(255, 78, 80, 0.1);
+  border-radius: 4px;
+  color: #ff4e50;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.biao-section-right .skin-list li:hover {
+  background: rgba(255, 78, 80, 0.2);
+  transform: translateX(5px);
+}
+
+.biao-nav-ul {
+  background: linear-gradient(135deg, #f7971e, #ff6b6b);
+  width: 150px;
+  height: 400px;
+  list-style: none;
+  padding: 40px 0;
+  margin: 0;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+}
+
+.biao-nav-li {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 5px 0;
+  cursor: pointer;
+  padding: 12px 30px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.biao-nav-li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.biao-nav-li.on {
+  background: #ff4e50;
+  transform: translateX(10px);
+}
+
+.biao-nav-cont {
+  width: 700px;
+  height: 400px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+
+.biao-nav-cont.active {
+  display: block;
+  opacity: 1;
+}
+
+.biao-nav-cont img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#biao-box {
+  width: 700px;
+  height: 400px;
+  border: none;
+  position: absolute;
+  right: 0;
+  overflow: hidden;
+  z-index: 1;
+  display: block;
+}
+
+#biao-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+}
+
+#biao-btns {
+  position: absolute;
+  right: 50px;
+  bottom: 15px;
+  z-index: 10;
+}
+
+#biao-btns button {
+  background: rgba(255, 255, 255, 0.8);
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 14px;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+#biao-btns button:hover {
+  transform: scale(1.1);
+  background: rgba(255, 78, 80, 0.9);
+  color: white;
+}
+
+#biao-btns button.hover {
+  background: #ff4e50;
+  color: white;
+  transform: scale(1.1);
+}
+
+section {
+  flex-grow: 1;
+  position: relative;
+  height: 400px;
+  width: 700px;
+}
+h1 {
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+  font-size: 40px;
+}

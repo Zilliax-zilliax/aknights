@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: 2s;
+}
+
+h3 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#box {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 1000px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+#box ul {
+  width: 5500px;
+  position: absolute;
+  left: 0px;
+  transition: 1s;
+  display: flex;
+  height: 300px;
+}
+
+#box ul li {
+  width: 500px;
+  height: 300px;
+  list-style: none;
+  flex-shrink: 0;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#left,
+#right {
+  position: absolute;
+  width: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  line-height: 300px;
+  font-size: 60px;
+  color: rgba(255, 255, 255, 0.7);
+  user-select: none;
+  text-align: center;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+#right {
+  right: 0;
+}
+
+#left:hover,
+#right:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#left:hover span,
+#right:hover span {
+  color: #fff;
+}
+
+/* 指示器样式 */
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  padding: 10px;
+  z-index: 2;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+.indicator.active {
+  background: #fff;
+  transform: scale(1.2);
+}
